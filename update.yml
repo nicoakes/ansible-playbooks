@@ -1,4 +1,8 @@
-- hosts: dockerdmz
-  ansible.builtin.apt:
-    name: "*"
-    state: latest
+---
+- name: Update all packages to their latest version
+  hosts: dockerdmz
+  Tasks:
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+
