@@ -3,8 +3,9 @@
   hosts: dockerdmz
   
   tasks:
-  - name: update dmz servers
+  - name: First Task update dmz servers
     ansible.builtin.apt:
       name: "*"
       state: latest
-
+  - name: second task
+    ansible.builtin.reboot:
