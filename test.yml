@@ -1,18 +1,9 @@
----
-- name: Display IP Configuration
-  hosts: all
-  gather_facts: yes
+- name: My first play
+  hosts: myhosts
   tasks:
-    - name: Display IP configuration for all network interfaces
-      debug:
-        msg: |
-          Host: {{ inventory_hostname }}
-          {% for interface in ansible_facts.network_interfaces | sort %}
-          {{ interface }}:
-            IP: {{ ansible_facts[interface].ipv4.address if ansible_facts[interface].get('ipv4') else 'N/A' }}
-            Netmask: {{ ansible_facts[interface].ipv4.netmask if ansible_facts[interface].get('ipv4') else 'N/A' }}
-            MAC: {{ ansible_facts[interface].macaddress if ansible_facts[interface].get('macaddress') else 'N/A' }}
-            {% if ansible_facts[interface].get('ipv6') %}
-            IPv6: {{ ansible_facts[interface].ipv6[0].address }}
-            {% endif %}
-          {% endfor %}
+   - name: Ping my hosts
+     ansible.builtin.ping:
+
+   - name: Print message
+     ansible.builtin.debug:
+       msg: Hello world
