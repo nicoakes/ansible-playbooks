@@ -1,5 +1,6 @@
 - name: My first play
   hosts: Docker
+  become: true
   tasks:
    - name: Ping my hosts
      ansible.builtin.ping:
@@ -7,3 +8,7 @@
    - name: Print message
      ansible.builtin.debug:
        msg: Hello world
+   - name: get SUDO rights
+     command: sudo -l
+     become: true
+     become_user: root
