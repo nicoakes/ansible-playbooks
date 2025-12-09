@@ -2,7 +2,6 @@
 - name: Update all packages to their latest version
   hosts: dockerdmz
   become: true
-  become_method: su
   tasks:
   - name: First Task update dmz servers
     ansible.builtin.apt:
