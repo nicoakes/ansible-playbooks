@@ -1,7 +1,7 @@
 ---
 - name: Update all packages to their latest version
   hosts: dockerdmz
-  become: yes
+  become: true
   
   tasks:
   - name: First Task update dmz servers
