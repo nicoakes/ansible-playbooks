@@ -5,6 +5,7 @@
   
   tasks:
   - name: First Task update dmz servers
+    become: true
     ansible.builtin.apt:
       name: "*"
       state: latest
